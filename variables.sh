@@ -1,4 +1,6 @@
 #!/bin/bash
 greeting="hello"
-name="world"
-echo "$greeting,$name"
+name="santhan"
+echo "$greeting,$name" 
+
+echo "my name is $name"
