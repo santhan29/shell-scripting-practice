@@ -5,6 +5,5 @@ DATE=$(date)
 echo "date is $DATE"
 TIMEZONE=$(timedatectl)
 echo "present timezone is $TIMEZONE"
-NEWTIMEZONE=$(sudo timedatectl set-timezone Asia/Kolkata)
-echo "setting the timezone to $NEWTIMEZONE" 
+sudo timedatectl set-timezone Asia/Kolkata
 
