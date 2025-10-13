@@ -13,6 +13,7 @@ then
     else 
         echo "package is installing"
         dnf install nginx -y
+    fi
 else
     echo "user has no superuser privileges"
 fi 
