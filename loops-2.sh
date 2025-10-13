@@ -7,6 +7,7 @@ N="\e[0m"
 
 check_root(){
     if [ $userid -ne 0 ]
+    then
         echo "please run the script with root privilege"
         exit 1
     fi
@@ -21,6 +22,7 @@ validate(){
         exit 1 
     else 
         echo -e "$2 is ... $R success $N"
+    fi 
 } 
 
 # sh loop-2.sh git mysql nginx
