@@ -15,7 +15,7 @@ Y="\e[33m"
 check_root(){
     if [ $userid -ne 0 ]
     then
-        echo -e "$R please run the script with root privilege $N" 
+        echo -e "$R please run the script with root privilege $N" | tee -a &>>$log_file
         exit 1
     fi
 }
@@ -27,16 +27,16 @@ usage (){
     exit 1
 }
 
-echo "script started executing at: $(date)" 
+echo "script started executing at: $(date)" | tee -a &>>$log_file
 
 
 validate(){
     if [ $1 -ne 0 ] 
     then
-        echo -e "$2 is ... $R failed $N" 
+        echo -e "$2 is ... $R failed $N" | tee -a &>>$log_file
         exit 1 
     else 
-        echo -e "$2 is ... $G success $N" 
+        echo -e "$2 is ... $G success $N" | tee -a &>>$log_file
     fi 
 } 
 
@@ -48,13 +48,13 @@ fi
 
 for package in $@
 do 
-    dnf list installed $package &>> $log_file 
+    dnf list installed $package &>>$log_file 
     if [ $? -ne 0 ]
     then 
-        echo -e "$R $package is not installed, going to install $N" 
-        dnf install $package -y &>> $log_file 
+        echo -e "$R $package is not installed, going to install $N" | tee -a &>>$log_file
+        dnf install $package -y &>>$log_file 
         validate $? "installing $package"
     else 
-        echo -e "$Y $package is already installed.. nothing to do $N"  
+        echo -e "$Y $package is already installed.. nothing to do $N" | tee -a &>>$log_file
     fi 
 done
