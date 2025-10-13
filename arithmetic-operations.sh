@@ -16,5 +16,5 @@ echo "total difference is $subtraction"
 multiplication=$(($num1*$num2)) 
 echo "total is $multiplication"
 
-division=$(($num1/$num2))
+division=$(($num1/$num2)) 
 echo "total is $division" 
