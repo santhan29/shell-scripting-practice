@@ -15,7 +15,7 @@ Y="\e[33m"
 check_root(){
     if [ $userid -ne 0 ]
     then
-        echo -e "$R please run the script with root privilege $N" &>> $log_file 
+        echo -e "$R please run the script with root privilege $N" 
         exit 1
     fi
 }
@@ -32,10 +32,10 @@ usage (){
 validate(){
     if [ $1 -ne 0 ] 
     then
-        echo -e "$2 is ... $R failed $N" &>> $log_file 
+        echo -e "$2 is ... $R failed $N" 
         exit 1 
     else 
-        echo -e "$2 is ... $G success $N" &>> $log_file 
+        echo -e "$2 is ... $G success $N" 
     fi 
 } 
 
@@ -50,10 +50,10 @@ do
     dnf list installed $package &>> $log_file 
     if [ $? -ne 0 ]
     then 
-        echo -e "$R $package is not installed, going to install $N" &>> $log_file 
+        echo -e "$R $package is not installed, going to install $N" 
         dnf install $package -y &>> $log_file 
         validate $? "installing $package"
     else 
-        echo -e "$Y $package is already installed.. nothing to do $N" &>> $log_file 
+        echo -e "$Y $package is already installed.. nothing to do $N"  
     fi 
 done
