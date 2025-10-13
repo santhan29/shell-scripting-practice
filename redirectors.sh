@@ -27,6 +27,7 @@ usage (){
     exit 1
 }
 
+echo "script started executing at: $(date)" 
 
 
 validate(){
