@@ -8,3 +8,7 @@ num2=$2
 
 sum=$(($num1+$num2))
 echo "total sum is $sum"
+
+subtraction=$(($num1-$num2)) 
+echo "total difference is $subtraction"
+
