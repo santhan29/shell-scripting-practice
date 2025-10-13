@@ -3,5 +3,5 @@
 
 for a in {1....20}
 do 
-    echo @a
+    echo $a 
 done 
