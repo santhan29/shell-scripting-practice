@@ -6,7 +6,7 @@ userid=$(id -u)
 if [ $userid == 0 ]
 then 
     echo "user has superuser privileges"
-    dnf installed nginx -y 
+    dnf list installed nginx -y 
     if [ $? == 0 ]
     then 
         echo "package is already installed .. no need to install"
