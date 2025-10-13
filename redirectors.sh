@@ -10,6 +10,7 @@ userid=$(id -u)
 R="\e[31m"
 G="\e[32m"
 N="\e[0m" 
+Y="\e[33m"
 
 check_root(){
     if [ $userid -ne 0 ]
@@ -31,4 +32,15 @@ validate(){
     fi 
 } 
 
-
+for package in $@
+do 
+    dnf list installed $package &>> $log_file 
+    if [ $? -ne 0 ]
+    then 
+        echo -e "$R $package is not installed, going to install $N" &>> $log_file 
+        dnf install $package -y &>> $log_file 
+        validate $? "installing $package"
+    else 
+        echo -e "$Y $package is already installed.. nothing to do $N" &>> $log_file 
+    fi 
+done
