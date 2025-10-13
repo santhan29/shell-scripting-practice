@@ -5,7 +5,10 @@
 userid=$(id -u) 
 if [ $userid == 0 ]
 then 
-    dnf install nginx -y
+    echo "user has superuser privileges"
+    dnf install nginx -y 
+
 else
-    echo "skip installation"
+    echo "user has no superuser privileges"
 fi 
+
