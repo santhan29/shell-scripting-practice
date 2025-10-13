@@ -22,6 +22,13 @@ check_root(){
 
 check_root
 
+usage (){
+    echo -e " $R usage is sudo sh 16-redirectors.sh package1 package2.. $N"
+    exit 1
+}
+
+
+
 validate(){
     if [ $1 -ne 0 ] 
     then
@@ -31,6 +38,12 @@ validate(){
         echo -e "$2 is ... $G success $N" &>> $log_file 
     fi 
 } 
+
+if [ $# -eq 0 ]
+then 
+    usage
+fi 
+
 
 for package in $@
 do 
