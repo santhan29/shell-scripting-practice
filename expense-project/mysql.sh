@@ -35,17 +35,27 @@ validate(){
     fi 
 } 
 
-
+#added mysql repo
 dnf install https://dev.mysql.com/get/mysql80-community-release-el9-1.noarch.rpm -y
+validate $? "adding mysql repo"
+
+#importing the key 
+rpm --import https://repo.mysql.com/RPM-GPG-KEY-mysql-2022
+validate $? "importing GPG key"
+
+#installing mysql
 dnf install mysql-community-server -y
 validate $? "installing mysql server" 
 
+#enabling mysql
 systemctl enable mysqld
 validate $? "enabling mysql server"
 
+#starting mysql
 systemctl start mysqld
 validate $? "starting mysql server"
 
+#setting up the root password 
 mysql_secure_installation --set-root-pass ExpenseApp@1
 validate $? "settingup root password" 
 
