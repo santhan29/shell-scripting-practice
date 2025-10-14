@@ -35,12 +35,8 @@ validate(){
     fi 
 } 
 
-#added mysql repo
-dnf install https://dev.mysql.com/get/mysql80-community-release-el9-1.noarch.rpm -y
-validate $? "adding mysql repo"
-
 #installing mysql
-sudo dnf install mysql-community-server -y --nogpgcheck
+dnf install mysql-server -y
 validate $? "installing mysql server" 
 
 #enabling mysql 
