@@ -35,7 +35,7 @@ validate(){
     fi 
 } 
 
-dnf install mysql-server -y
+dnf install mysql-community-server -y
 validate $? "installing mysql server" 
 
 systemctl enable mysqld
