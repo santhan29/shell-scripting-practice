@@ -39,16 +39,11 @@ validate(){
 dnf install https://dev.mysql.com/get/mysql80-community-release-el9-1.noarch.rpm -y
 validate $? "adding mysql repo"
 
-#importing the key 
-rpm --import https://repo.mysql.com/RPM-GPG-KEY-mysql
-rpm --import https://repo.mysql.com/RPM-GPG-KEY-mysql-2022
-validate $? "importing GPG key"
-
 #installing mysql
-dnf install mysql-community-server -y
+sudo dnf install mysql-community-server -y --nogpgcheck
 validate $? "installing mysql server" 
 
-#enabling mysql
+#enabling mysql 
 systemctl enable mysqld
 validate $? "enabling mysql server"
 
