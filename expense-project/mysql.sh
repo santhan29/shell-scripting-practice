@@ -35,6 +35,8 @@ validate(){
     fi 
 } 
 
+
+dnf install https://dev.mysql.com/get/mysql80-community-release-el9-1.noarch.rpm -y
 dnf install mysql-community-server -y
 validate $? "installing mysql server" 
 
