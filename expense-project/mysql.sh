@@ -40,6 +40,7 @@ dnf install https://dev.mysql.com/get/mysql80-community-release-el9-1.noarch.rpm
 validate $? "adding mysql repo"
 
 #importing the key 
+rpm --import https://repo.mysql.com/RPM-GPG-KEY-mysql
 rpm --import https://repo.mysql.com/RPM-GPG-KEY-mysql-2022
 validate $? "importing GPG key"
 
