@@ -22,11 +22,6 @@ check_root(){
 
 check_root
 
-usage (){
-    echo -e " $R usage is sudo sh 16-redirectors.sh package1 package2.. $N"
-    exit 1
-}
-
 echo "script started executing at: $(date)" | tee -a $log_file
 
 
@@ -40,21 +35,16 @@ validate(){
     fi 
 } 
 
-if [ $# -eq 0 ]
-then 
-    usage
-fi 
+dnf install mysql-server -y
+validate $? "installing mysql server" 
+
+systemctl enable mysqld
+validate $? "enabling mysql server"
+
+systemctl start mysqld
+validate $? "starting mysql server"
+
+mysql_secure_installation --set-root-pass ExpenseApp@1
+validate $? "settingup root password" 
 
 
-for package in $@
-do 
-    dnf list installed $package &>>$log_file 
-    if [ $? -ne 0 ]
-    then 
-        echo -e "$R $package is not installed, going to install $N" | tee -a $log_file
-        dnf install $package -y &>>$log_file 
-        validate $? "installing $package"
-    else 
-        echo -e "$Y $package is already installed.. nothing to do $N" | tee -a $log_file
-    fi 
-done
