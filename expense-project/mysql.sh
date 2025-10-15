@@ -48,7 +48,7 @@ systemctl start mysqld &>>$log_file
 validate $? "starting mysql server"
 
 #setting up the root password 
-mysql -h 172.31.23.144 -u root -pExpenseApp@1 -e 'show databases;' &>>$log_file
+mysql -h 172.31.26.205 -u root -pExpenseApp@1 -e 'show databases;' &>>$log_file
 if [ $? -ne 0 ]
 then
     echo "$R mysql root password is not setup...setting now $N"
