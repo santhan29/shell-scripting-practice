@@ -64,6 +64,27 @@ rm -rf /app/*  #removes the existing code in the /app directory
 unzip /tmp/backend.zip
 validate $? "extracting the backend application code"  
 
+npm install
+cp /home/ec2-user/expense-project/backend.service /etc/systemd/system/backend.service 
+
+#load the data before running the backend
+dnf install mysql -y 
+validate $? "installing mysql client"
+
+mysql -h 172.31.26.205 -uroot -pExpenseApp@1 < /app/schema/backend.sql
+validate $? "schema loading" 
+
+systemctl daemon-reload
+validate $? "daemon reload" 
+
+systemctl enable backend
+validate $? "enabling backend"
+
+systemctl restart backend
+validate $? "restarting backend" 
+
+
+
 
 
 
