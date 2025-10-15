@@ -51,7 +51,7 @@ validate $? "starting mysql server"
 mysql -h 172.31.26.205 -u root -pExpenseApp@1 -e 'show databases;' &>>$log_file
 if [ $? -ne 0 ]
 then
-    echo "$R mysql root password is not setup...setting now $N"
+    echo -e "$R mysql root password is not setup...setting now $N"
     mysql_secure_installation --set-root-pass ExpenseApp@1 &>>$log_file
     validate $? "settingup root password"  
 else 
