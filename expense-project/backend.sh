@@ -65,7 +65,7 @@ unzip /tmp/backend.zip
 validate $? "extracting the backend application code"  
 
 npm install
-cp /home/ec2-user/expense-project/backend.service /etc/systemd/system/backend.service 
+cp /home/ec2-user/shell-scripting-practice/expense-project/backend.service /etc/systemd/system/backend.service 
 
 #load the data before running the backend
 dnf install mysql -y 
