@@ -71,7 +71,7 @@ cp /home/ec2-user/shell-scripting-practice/expense-project/backend.service /etc/
 dnf install mysql -y 
 validate $? "installing mysql client"
 
-mysql -h 172.31.26.205 -uroot -pExpenseApp@1 < /app/schema/backend.sql
+mysql -h 172.31.28.239 -uroot -pExpenseApp@1 < /app/schema/backend.sql
 validate $? "schema loading" 
 
 systemctl daemon-reload
