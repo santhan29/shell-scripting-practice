@@ -45,8 +45,10 @@ validate $? "downloading the frontend code"
 
 cd /usr/share/nginx/html
 unzip /tmp/frontend.zip
+validate $? "extracting the frontend code" 
 
 cp /home/ec2-user/shell-scripting-practice/expense-project/expense.conf /etc/systemd/system/backend.service 
+validate $? "copied the expense.conf"
 
 systemctl restart nginx
 validate $? "restarting the nginx" 
