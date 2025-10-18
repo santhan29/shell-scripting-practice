@@ -20,3 +20,8 @@ fi
 files=$(find $sour_dir -name "*.log" -mtime +14) 
 echo "FILES: $files" 
 
+while IFS=  read -r line #IFS is internal field separator, here we are keeping ifs as empty, -r is for not to ignore special character like /
+do 
+    echo "Deleting line: $line"
+done <<< $files 
+
