@@ -7,7 +7,7 @@
 #find the log files in that directory  
 #then delete it  
 
-sour_dir=/home/ec2-user/logs
+sour_dir=/home/ec2-user/logs 
 cd $sour_dir 
 if [ $? -ne 0 ]
 then 
@@ -16,3 +16,7 @@ then
 else
     echo "directory exists" 
 fi 
+
+files=$(find $sour_dir -name "*.log" -mtime +14) 
+echo "FILES: $files" 
+
