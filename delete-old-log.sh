@@ -2,7 +2,7 @@
 
 #this script demonstrates deleting the log files older than 14 days
 #algorithm
----------------
+# ---------------
 #first find the directory in which logs are stored and check whether that directory exists or not
 #find the log files in that directory  
 #then delete it  
