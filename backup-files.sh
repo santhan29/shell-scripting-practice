@@ -41,9 +41,9 @@ then
     then 
         echo "successfully zipped files older than $days"
         #remove the files after zipping 
-        while IFS=  read -r line #IFS is internal field separator, here we are keeping ifs as empty, -r is for not to ignore special character like /
+        while IFS=  read -r file 
         do 
-            echo "Deleting line: $file"
+            echo "Deleting file: $file"
             rm -rf $file 
         done <<< $files 
     else 
