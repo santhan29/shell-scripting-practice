@@ -7,7 +7,7 @@
 #find the log files in that directory  
 #then delete it  
 
-sour_dir=/home/ec2-user/log
+sour_dir=/home/ec2-user/logs
 cd $sour_dir 
 if [ $? -ne 0 ]
 then 
